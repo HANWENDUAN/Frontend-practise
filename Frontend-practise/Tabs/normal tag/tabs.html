@@ -12,10 +12,32 @@
         }
 
         .tab .tablinks {
-            border: 0px;
-            background-color: #ccc;
-            
+            border: none;
+            background-color:inherit;
+            float: left;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+
         }
+
+        .tab .tablinks:hover {
+            background-color: #ddd;
+        }
+
+        .tab .tablinks .active {
+            background-color: #ccc;
+        }
+
+        .tabcontent{
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #cccc;
+            border-top: none;
+        }
+
+
     </style>
 </head>
 <body>
@@ -45,8 +67,25 @@
     </div>
 
     <div id="Tokyo" class="tabcontent">
-        <p>Tokyo content</p>>
+        <p>Tokyo content</p>
     </div>
-    
+<p id="s"></p>
+
+    <script>
+        var buttons = document.getElementsByClassName("tablinks");
+        var i;
+        
+        
+        for(i = 0; i < buttons.length; i++){
+            buttons[i].addEventListener("click", function(){
+                var tabcontent = document.getElementsByClassName("tabcontent")
+                if (tabcontent[i].style.display === "block") {
+                    tabcontent[i].style.display = "none";
+                } else {
+                    tabcontent[i].style.display = "block";
+                }
+            });
+        }
+    </script>
 </body>
 </html>
