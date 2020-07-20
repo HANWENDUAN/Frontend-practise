@@ -12,3 +12,15 @@
     <button (click)="doSomething()">Do Something</button><br>
     looks like inline event but not. Could be addEvent.
 4. use ***overflow:hidden*** to restrict the scrollbar showing up.
+
+5. **作用域！！！！** 函数中声明的var是全局变量所以<br>
+   这个是块状作用域和词法作用域.
+```
+for(var i = 0; i < 5; i++) {
+  setTimeout(function() {
+     console.log(i);			// 5 5 5 5 5
+  }, 200);
+};
+
+```
+因为词法作用域的原因。var i全局只有一个值。所以是5 全部执行完之后的数值 莺歌用let i=0；。
