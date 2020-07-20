@@ -73,12 +73,15 @@
 
     <script>
         var buttons = document.getElementsByClassName("tablinks");
-        var i;
+        var tabcontent = document.getElementsByClassName("tabcontent")       
         
-        
-        for(i = 0; i < buttons.length; i++){
+        for(let i = 0; i < buttons.length; i++){
+            
             buttons[i].addEventListener("click", function(){
-                var tabcontent = document.getElementsByClassName("tabcontent")
+                for(let item of tabcontent){
+                item.style.display = "none";
+                }
+                
                 if (tabcontent[i].style.display === "block") {
                     tabcontent[i].style.display = "none";
                 } else {
@@ -88,4 +91,4 @@
         }
     </script>
 </body>
-</html>
+</html> 
