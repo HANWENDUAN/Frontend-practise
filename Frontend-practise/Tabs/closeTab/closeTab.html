@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tag</title>
+    <style>
+        .tab{
+            overflow: hidden;
+            width: 100%;
+            background-color: #ddd;
+        }
+
+        .tab .tablinks {
+            border: none;
+            background-color:inherit;
+            float: left;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+
+        }
+
+        .tab .tablinks:hover {
+            background-color: #ccc;
+        }
+
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        .tabcontent{
+            animation: fadeEffect 5s;
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #cccc;
+            border-top: none;
+        }
+
+        .closeContent {
+            float: right;
+            cursor: pointer;
+            font-size: 28px;
+        }
+        
+        @-webkit-keyframes fadeEffect {
+        from {opacity: 0;}
+        to {opacity: 1;}
+        }
+
+        @keyframes fadeEffect {
+        from {opacity: 0;}
+        to {opacity: 1;}
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- tab links -->
+    <div class="tab" >
+        <button class="tablinks" id="defaultOpen">
+            London
+        </button>
+    
+        <button class="tablinks">
+            Paris
+        </button>
+    
+        <button class="tablinks">
+            Tokyo
+        </button>
+    </div>
+
+    <!-- tab content -->
+    <div id="London" class="tabcontent">
+        <span class="closeContent">&times</span>
+        <p>London content</p>
+    </div>
+
+    <div id="Paris" class="tabcontent">
+        <span class="closeContent">&times</span>
+        <p>Paris content</p>
+    </div>
+
+    <div id="Tokyo" class="tabcontent">
+        <span class="closeContent">&times</span>
+        <p>Tokyo content</p>
+    </div>
+<p id="s"></p>
+
+    <script>
+        var buttons = document.getElementsByClassName("tablinks");
+        var tabcontent = document.getElementsByClassName("tabcontent")       
+        var closeButtons = document.getElementsByClassName("closeContent")
+        // add event to tablinks; let restrict scope 
+        for(let i = 0; i < buttons.length; i++){
+            
+            buttons[i].addEventListener("click", function(){
+
+                // clear the button's active status
+                for(let item of buttons){
+                    item.className = item.className.replace(" active", "");
+                };
+
+                this.classList.toggle("active");
+
+                // clear previous display
+                for(let item of tabcontent){
+                item.style.display = "none";
+                };
+                
+                //change display status
+                if (tabcontent[i].style.display === "block") {
+                    tabcontent[i].style.display = "none";
+                } else {
+                    tabcontent[i].style.display = "block";
+                }
+            });
+        }
+
+        for(let i = 0; i < closeButtons.length; i++){
+            closeButtons[i].addEventListener("click", function(){
+                tabcontent[i].style.display = "none";
+            });
+        }
+
+        document.getElementById("defaultOpen").click();
+    </script>
+
+</body>
+</html> 
