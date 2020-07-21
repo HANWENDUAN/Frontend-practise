@@ -31,12 +31,23 @@
         }
 
         .tabcontent{
+            animation: fadeEffect 1s;
             display: none;
             padding: 6px 12px;
             border: 1px solid #cccc;
             border-top: none;
         }
+        
+     
+        @-webkit-keyframes fadeEffect {
+        from {opacity: 0;}
+        to {opacity: 1;}
+        }
 
+        @keyframes fadeEffect {
+        from {opacity: 0;}
+        to {opacity: 1;}
+        }
 
     </style>
 </head>
