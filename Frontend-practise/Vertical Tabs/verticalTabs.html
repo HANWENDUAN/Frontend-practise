@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerticalTabs</title>
+
+    <style>
+        .container {
+            width: 100%;
+            background-color:white;
+            height: 300px;
+            box-sizing: border-box;
+            border: 1px black solid;
+        }
+
+        .tabs {
+            float: left;
+            width: 30%;
+            height: 100%;
+            background-color: #ccc;
+            box-sizing: border-box;
+            border-right: 1px black solid;
+        }
+        .tablinks {
+            background-color: inherit;
+            display: block;
+            width: 100%;
+            padding: 22px 16px;
+            color: black;
+            border: none;
+            outline: none;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .active {
+            background-color: #f1f1f1;
+        }
+
+        .tablinks:hover {
+            background-color: #ddd;
+        }
+
+        .tabcontent {
+            box-sizing: border-box;
+            float: left;
+            width: 70%;
+            height: 100%;
+            background-color: white;
+            overflow: hidden;
+        }
+
+        .content {
+            display: none;
+            animation: fadein 2s;
+        }
+
+        @-webkit-keyframes fadein {
+        from {opacity: 0;}
+        to {opacity: 1;}
+        }
+
+        @keyframes fadein {
+        from {opacity: 0;}
+        to {opacity: 1;}
+        }
+    </style>
+</head>
+<body>
+ 
+    <div class="container">
+        <div class="tabs">
+            <button class="tablinks" id="defaultOpen">London</button>
+            <button class="tablinks">Pairs</button>
+            <button class="tablinks">Tokyo</button>    
+        </div>
+
+        <div class="tabcontent">
+            <div class="content">london content</div>
+            <div class="content">Pairs content</div>
+            <div class="content">Tokyo content</div>
+        </div>
+        
+    </div>
+    <br clear="both">
+
+    <script>
+        var content = document.getElementsByClassName("content");
+        var buttons = document.getElementsByClassName("tablinks");
+
+        for(let i = 0; i < buttons.length; i++){
+            buttons[i].addEventListener("click", function(){
+
+                for(let item of buttons){
+                    item.className = item.className.replace(" active", "");
+                };
+
+                this.classList.toggle("active");
+
+                for(item of content) {
+                    item.style.display = "none"
+                }
+                if(content[i].style.display === "block"){
+                    content[i].style.display = "none";
+                } else {
+                    content[i].style.display = "block";
+                }
+            });
+        };
+        document.getElementById("defaultOpen").click();
+    </script>
+
+</body>
+</html>

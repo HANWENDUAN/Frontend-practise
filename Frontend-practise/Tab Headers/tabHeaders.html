@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+    .tabcontent {
+        text-align: center;
+        padding: 50px;
+        display: none;
+    }
+
+    #London {background-color:red;}
+    #Paris {background-color:green;}
+    #Tokyo {background-color:blue;}
+    #Oslo {background-color:orange;}
+
+    .tablinks{
+        float: left;
+        outline: none;
+        border: none;
+        width: 25%;
+        cursor: pointer;
+        padding: 14px 16px;
+        font-size: 17px;
+    }
+
+    .tablinks:hover {
+        background-color: #ddd;
+    }
+
+
+
+</style>
+
+<body>
+   
+    <div class="container">
+        <div class="content">
+            <div class="tabcontent" id="London">
+                <h1>London</h1>
+                <p>London content</p>
+            </div>
+            
+            <div class="tabcontent" id="Paris">
+                <h1>Paris</h1>
+                <p>Paris content</p>
+            </div>
+        
+            <div class="tabcontent" id="Tokyo">
+                <h1>Tokyo</h1>
+                <p>Tokyo content</p>
+            </div>
+        
+            <div class="tabcontent" id="Oslo"> 
+                <h1>Oslo</h1>
+                <p>Oslo content</p>
+            </div>    
+        </div>
+    
+        <div class="tabs">
+            <button class="tablinks">London</button>
+            <button class="tablinks">Paris</button>
+            <button class="tablinks">Tokyo</button>
+            <button class="tablinks">Oslo</button>        
+        </div>
+    </div>
+
+    <script>
+        var content = document.getElementsByClassName("tabcontent");
+        var buttons = document.getElementsByClassName("tablinks");
+
+        for(let i = 0; i < buttons.length; i++){
+            buttons[i].addEventListener("click", function(){
+
+                //clear all the display porperty
+                for(let item of content){
+                    item.style.display = "none";
+                }
+
+                // click
+                if(content[i].style.display === "none"){
+                    content[i].style.display = "block"
+                }
+            });
+        }
+    </script>
+</body>
+</html>
