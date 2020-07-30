@@ -63,31 +63,35 @@
         </div>
     
         <div class="tabs">
-            <button class="tablinks">London</button>
-            <button class="tablinks">Paris</button>
-            <button class="tablinks">Tokyo</button>
-            <button class="tablinks">Oslo</button>        
+            <button class="tablinks" onclick="openCity('London',this,'red')" id="defaultOpen">London</button>
+            <button class="tablinks" onclick="openCity('Paris',this,'green')">Paris</button>
+            <button class="tablinks" onclick="openCity('Tokyo',this,'blue')">Tokyo</button>
+            <button class="tablinks" onclick="openCity('Oslo',this,'orange')">Oslo</button>        
         </div>
     </div>
 
     <script>
-        var content = document.getElementsByClassName("tabcontent");
-        var buttons = document.getElementsByClassName("tablinks");
+        function openCity(CityName,element,color) {
+            var i, content,buttons;
+            content = document.getElementsByClassName("tabcontent");
+            buttons = document.getElementsByClassName("tablinks");
 
-        for(let i = 0; i < buttons.length; i++){
-            buttons[i].addEventListener("click", function(){
+            // clean the style 
+            for (let i = 0; i < content.length; i++){
+                content[i].style.display = "none"; 
+            }
+            
+            // clean the button color
+            for (let i = 0; i < buttons.length; i++){
+                buttons[i].style.backgroundColor = ""
+            };
 
-                //clear all the display porperty
-                for(let item of content){
-                    item.style.display = "none";
-                }
+            document.getElementById(CityName).style.display = ("block");
 
-                // click
-                if(content[i].style.display === "none"){
-                    content[i].style.display = "block"
-                }
-            });
+            element.style.backgroundColor = color; 
         }
+
+        document.getElementById("defaultOpen").click();
     </script>
 </body>
 </html>
