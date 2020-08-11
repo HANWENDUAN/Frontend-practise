@@ -17,3 +17,10 @@ If the name attribute is omitted, the value of that input field will not be sent
 
 8. Using ***flexbox*** to do the layout
 9. **li** element has a default display value ***display:list-item*** you should set it to block.
+10. Search function design logic: using the result of indexof function to compare with -1 to check if the elemnet has the input character.
+    
+11. ***HTMLCollection*** is an arraylist like object which has index length and nameItem porperties.
+
+12. ***HtmlElement*** override by ***input element***. ***input element*** using .***vaule*** to get the content but not the .nodeValue.
+13. Different between htmlElement and ***input element*** 
+14. ***display = ""*** will return inline 

@@ -19,15 +19,16 @@
         display: flex;
     }
 
-    .left h2 {
-        padding-left: 8px;
-    }
-    
+
     .left {
         background-color: #bbb;
         flex:35%;
         padding: 15px 0;
     }
+
+    .left h2 {
+        padding-left: 8px;
+    }  
 
     .right {
         background-color: #ddd;
@@ -66,7 +67,7 @@
     <div class="container">
         <div class="left">
             <h2>Menu</h2>
-            <input type="text" id="mySearch" onkeyup="myFunction" placeholder="Search..." title="Type in a category">
+            <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search..." title="Type in a category">
             <ul id="myMenu">
                 <li><a href="#">Html</a></li>
                 <li><a href="#">Css</a></li>
@@ -87,5 +88,35 @@
             <p>the last p</p>
         </div>
     </div>
+
+
+    <script>
+        function myFunction(){
+
+            var input, filter, ul, li, a, i;
+            
+            input = document.getElementById("mySearch");
+
+            //indexOf is case sensitive so you have to convert the content to uppercase
+            filter = input.value.toUpperCase();
+
+            
+            ul = document.getElementById("myMenu");
+            li = ul.getElementsByTagName("li");
+
+            
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                console.log(a.innerHTML.toUpperCase().indexOf("s"))
+                if(a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none"
+                }
+            }
+        }
+    </script>
+
+    </script>
 </body>
 </html>
